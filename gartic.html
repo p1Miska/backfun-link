@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gartic Phone - backfun</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        body { 
+            background: #121212; 
+            color: #fff; 
+            font-family: sans-serif; 
+            margin: 0; 
+            scroll-behavior: smooth; /* Чтобы плавно мотало к карточкам */
+        }
+
+        /* Меню как на главной */
+        .menu-btn { position: fixed; top: 20px; left: 20px; z-index: 1000; cursor: pointer; display: flex; flex-direction: column; gap: 5px; padding: 10px; }
+        .menu-btn span { display: block; width: 25px; height: 3px; background: #fff; border-radius: 2px; }
+        .side-menu { position: fixed; top: 0; left: -250px; width: 250px; height: 100%; background: #141414; z-index: 999; padding-top: 80px; transition: 0.3s; }
+        .side-menu.active { left: 0; }
+        .side-menu a { display: block; padding: 15px 25px; color: #fff !important; text-decoration: none; }
+        .side-menu a.active { border-left: 4px solid #00d4ff; background: #1a1a1a; color: #00d4ff !important; }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 80px 20px; text-align: center; }
+        
+        h1 { font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        .description { color: #aaa; margin-bottom: 40px; line-height: 1.6; }
+
+        /* Быстрый список ников */
+        .nav-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 60px; padding: 0; list-style: none; }
+        .nav-list a { color: #00d4ff; text-decoration: none; font-size: 14px; border: 1px solid #333; padding: 5px 12px; border-radius: 20px; transition: 0.3s; }
+        .nav-list a:hover { background: #00d4ff; color: #000; }
+
+        /* Сетка карточек */
+        .cards-grid { display: flex; flex-direction: column; gap: 50px; }
+
+        /* Сама карточка */
+        .character-card {
+            background: #1a1a1a;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            transition: 0.3s;
+            border: 1px solid #333;
+        }
+
+        /* Неоновая подсветка (динамическая через переменную) */
+        .character-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 20px;
+            box-shadow: 0 0 20px var(--neon-color);
+            opacity: 0.4;
+            z-index: -1;
+        }
+
+        .card-images { display: flex; gap: 15px; justify-content: center; margin-bottom: 20px; }
+        .card-images img { 
+            width: 45%; 
+            aspect-ratio: 1/1; 
+            object-fit: cover; 
+            border-radius: 10px; 
+            background: #222;
+        }
+
+        .character-name { font-size: 1.5rem; font-weight: bold; margin: 15px 0; display: block; }
+        .character-desc { color: #888; font-size: 0.9rem; }
+
+        footer { text-align: center; padding: 50px 0; color: #555; font-size: 12px; }
+        footer a { color: #777; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+    </div>
+
+    <div class="side-menu" id="sideMenu">
+        <a href="/">Ссылки</a>
+        <a href="/gartic" class="active">Гартик</a>
+    </div>
+
+    <div class="container">
+        <h1>Gartic Phone</h1>
+        <p class="description">
+            Здесь собраны референсы персонажей для игры в Gartic Phone. <br>
+            Нажми на имя, чтобы быстро перейти к карточке.
+        </p>
+
+        <!-- Список имен для быстрой перемотки -->
+        <ul class="nav-list">
+            <li><a href="#backfun">backfun</a></li>
+            <li><a href="#miska">miska</a></li>
+            <!-- Сюда добавишь остальные 15-20 штук -->
+        </ul>
+
+        <div class="cards-grid">
+            
+            <!-- Пример карточки 1 (Бекфан) -->
+            <div class="character-card" id="backfun" style="--neon-color: #00d4ff;">
+                <div class="card-images">
+                    <img src="images/ref1.png" alt="ref1">
+                    <img src="images/ref2.png" alt="ref2">
+                </div>
+                <span class="character-name">backfun</span>
+                <p class="character-desc">Нишевая микроселебрити, обожает пепеленд и синий неон.</p>
+            </div>
+
+            <!-- Пример карточки 2 (Миска) -->
+            <div class="character-card" id="miska" style="--neon-color: #ff00ff;">
+                <div class="card-images">
+                    <img src="images/miska1.png" alt="ref1">
+                    <img src="images/miska2.png" alt="ref2">
+                </div>
+                <span class="character-name">miska</span>
+                <p class="character-desc">Сделала этот сайт и любит котиков.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>Почта для сотрудничества: <a href="mailto:backfun@backfun.fun">backfun@backfun.fun</a></p>
+        <p>Сделано Миской :3</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('sideMenu').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
+
