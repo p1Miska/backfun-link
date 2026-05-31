@@ -6,7 +6,6 @@
     <title>backfun</title>
     <link rel="icon" type="image/png" href="images/avatar.png">
 
-    <!-- Мета-теги для красивого превью (Open Graph) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="backfun">
     <meta property="og:description" content="Нишевая интернет микроселебрити. Пепеленд, хорроры, сюжетки, приколы — вот это всё здесь.">
@@ -30,31 +29,31 @@
         /* Боковое меню */
         .side-menu { position: fixed; top: 0; left: -250px; width: 250px; height: 100%; background: #141414; z-index: 999; padding-top: 80px; transition: 0.3s; box-shadow: 5px 0 15px rgba(0,0,0,0.5); }
         .side-menu.active { left: 0; }
-        .side-menu a { display: block; padding: 15px 25px; color: #fff; text-decoration: none; font-size: 16px; transition: 0.2s; }
-        .side-menu a:hover { background: #1a1a1a; }
         
-        /* Активная полоска в цвет Бекфана (голубой/синий) */
-        .side-menu a.active { border-left: 4px solid #00d4ff; background: #1a1a1a; }
+        /* Кнопки "Ссылки" и "Гартик" теперь строго белые */
+        .side-menu a { display: block; padding: 15px 25px; color: #ffffff !important; text-decoration: none; font-size: 16px; transition: 0.2s; }
+        .side-menu a:hover { background: #1a1a1a; color: #00d4ff !important; }
         
-        /* Кнопки доната в самом низу (светло-серые, заметнее) */
+        /* Активная полоска слева, а текст остается белым */
+        .side-menu a.active { border-left: 4px solid #00d4ff; background: #1a1a1a; color: #ffffff !important; }
+        
+        /* Кнопки доната в самом низу (светло-серые, изолированные) */
         .menu-footer { position: absolute; bottom: 20px; left: 0; width: 100%; border-top: 1px solid #1a1a1a; padding-top: 10px; }
         .menu-footer a { padding: 8px 25px; color: #444 !important; font-size: 11px; background: none !important; border: none !important; text-transform: uppercase; letter-spacing: 1px; }
         .menu-footer a:hover { color: #666 !important; }
 
-        /* Покраска кнопок */
+        /* Покраска кнопок основного контента */
         .button-yt-alt { background-color: #ff0000 !important; color: #fff !important; }
     </style>
 </head>
 <body>
 
-    <!-- Иконка меню -->
     <div class="menu-btn" onclick="toggleMenu()">
         <span></span>
         <span></span>
         <span></span>
     </div>
 
-    <!-- Боковое меню -->
     <div class="side-menu" id="sideMenu">
         <a href="/" class="active">Ссылки</a>
         <a href="/gartic">Гартик</a>
