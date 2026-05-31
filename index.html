@@ -30,19 +30,16 @@
         /* Боковое меню */
         .side-menu { position: fixed; top: 0; left: -250px; width: 250px; height: 100%; background: #141414; z-index: 999; padding-top: 80px; transition: 0.3s; box-shadow: 5px 0 15px rgba(0,0,0,0.5); }
         .side-menu.active { left: 0; }
-        .side-menu a { display: block; padding: 15px 25px; color: #888; text-decoration: none; font-size: 16px; transition: 0.2s; }
-        .side-menu a:hover { background: #1a1a1a; color: #fff; }
+        .side-menu a { display: block; padding: 15px 25px; color: #fff; text-decoration: none; font-size: 16px; transition: 0.2s; }
+        .side-menu a:hover { background: #1a1a1a; }
         
         /* Активная полоска в цвет Бекфана (голубой/синий) */
-        .side-menu a.active { color: #fff; border-left: 4px solid #00d4ff; background: #1a1a1a; }
+        .side-menu a.active { border-left: 4px solid #00d4ff; background: #1a1a1a; }
         
-        /* Заблокированный пункт (Вики) */
-        .side-menu a.disabled { color: #333; cursor: not-allowed; display: flex; align-items: center; gap: 8px; font-size: 15px; }
-        
-        /* Кнопки доната в самом низу (почти незаметные) */
+        /* Кнопки доната в самом низу (светло-серые, заметнее) */
         .menu-footer { position: absolute; bottom: 20px; left: 0; width: 100%; border-top: 1px solid #1a1a1a; padding-top: 10px; }
-        .menu-footer a { padding: 8px 25px; color: #222 !important; font-size: 11px; background: none !important; border: none !important; text-transform: uppercase; letter-spacing: 1px; }
-        .menu-footer a:hover { color: #444 !important; }
+        .menu-footer a { padding: 8px 25px; color: #444 !important; font-size: 11px; background: none !important; border: none !important; text-transform: uppercase; letter-spacing: 1px; }
+        .menu-footer a:hover { color: #666 !important; }
 
         /* Покраска кнопок */
         .button-yt-alt { background-color: #ff0000 !important; color: #fff !important; }
@@ -61,7 +58,6 @@
     <div class="side-menu" id="sideMenu">
         <a href="/" class="active">Ссылки</a>
         <a href="/gartic">Гартик</a>
-        <a href="#" class="disabled">Вики &#128274;</a>
         
         <div class="menu-footer">
             <a href="https://finance.ozon.ru/apps/sbp/ozonbankpay/019e6e75-7f4c-7222-8abb-44f6e8a676c6" target="_blank">Купить псыжа Миске</a>
@@ -97,7 +93,6 @@
             document.getElementById('sideMenu').classList.toggle('active');
         }
 
-        // Закрывать меню при клике вне его
         document.addEventListener('click', function(event) {
             var menu = document.getElementById('sideMenu');
             var btn = document.querySelector('.menu-btn');
